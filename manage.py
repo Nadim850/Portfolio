@@ -20,19 +20,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-{
-    "version": 2,
-    "builds": [
-        {
-            "src": "portfolio_project/wsgi.py",
-            "use": "@vercel/python",
-            "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "portfolio_project/wsgi.py"
-        }
-    ]
-}
