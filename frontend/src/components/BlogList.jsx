@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { API_URL } from '../config';
 
 const BlogList = () => {
@@ -40,9 +41,9 @@ const BlogList = () => {
                 <p className="text-slate-600 dark:text-slate-400 mb-6 line-clamp-2">
                   {blog.content}
                 </p>
-                <a href={`#blog/${blog.slug}`} className="text-sfBlue font-medium hover:underline inline-flex items-center gap-1">
+                <Link to={`/blog/${blog.slug}`} className="text-sfBlue font-medium hover:underline inline-flex items-center gap-1">
                   Read Article <span aria-hidden="true">&rarr;</span>
-                </a>
+                </Link>
               </article>
             ))}
           </div>
