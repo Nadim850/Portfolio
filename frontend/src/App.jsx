@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import BlogDetail from './pages/BlogDetail';
@@ -9,6 +10,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col font-sans selection:bg-sfBlue selection:text-white">
+        <Toaster position="bottom-right" toastOptions={{ className: 'dark:bg-slate-800 dark:text-white' }} />
         <Navbar />
         
         <main className="flex-grow">

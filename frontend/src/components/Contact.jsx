@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send } from 'lucide-react';
+import toast from 'react-hot-toast';
 import { API_URL } from '../config';
 
 const Contact = () => {
@@ -19,15 +20,17 @@ const Contact = () => {
       });
       
       if (response.ok) {
-        setStatus('success');
+        setStatus('idle');
         setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus('idle'), 5000);
+        toast.success("Message sent successfully! I'll get back to you soon.");
       } else {
-        setStatus('error');
+        setStatus('idle');
+        toast.error("Failed to send message. Please try again.");
       }
     } catch (err) {
       console.error(err);
-      setStatus('error');
+      setStatus('idle');
+      toast.error("Network error. Please ensure the backend is running.");
     }
   };
 
@@ -56,15 +59,6 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="bg-slate-50 dark:bg-slate-900/50 p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl"
         >
-          {status === 'success' ? (
-            <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
-              <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-500">
-                <CheckCircle size={32} />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Message Sent!</h3>
-              <p className="text-slate-600 dark:text-slate-400">Thanks for reaching out. I'll get back to you as soon as possible.</p>
-            </div>
-          ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -88,10 +82,6 @@ const Contact = () => {
                   placeholder="How can I help you?" />
               </div>
               
-              {status === 'error' && (
-                <p className="text-red-500 text-sm">Failed to send message. Please ensure the backend is running.</p>
-              )}
-
               <button type="submit" disabled={status === 'submitting'}
                 className="w-full bg-sfBlue hover:bg-blue-700 disabled:opacity-70 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
               >
@@ -100,7 +90,6 @@ const Contact = () => {
                 )}
               </button>
             </form>
-          )}
         </motion.div>
       </div>
     </section>
