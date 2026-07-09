@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import TechUpdates from './components/TechUpdates';
 import BlogList from './components/BlogList';
 import Contact from './components/Contact';
+import { API_URL } from './config';
 
 function App() {
   return (
@@ -25,7 +26,15 @@ function App() {
       
       <footer className="py-12 text-center text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
         <p className="mb-2">© {new Date().getFullYear()} Nadim Khan. Built with React & Django.</p>
-        <p className="text-sm">Inspired by minimalist, premium design.</p>
+        <p className="text-sm mb-4">Inspired by minimalist, premium design.</p>
+        <a 
+          href={`${API_URL}/admin`} 
+          target="_blank" 
+          rel="noreferrer"
+          className="text-xs text-slate-400 hover:text-sfBlue dark:hover:text-cyan-400 transition-colors"
+        >
+          Admin Login
+        </a>
       </footer>
     </div>
   );
