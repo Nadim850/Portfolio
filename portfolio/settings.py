@@ -83,7 +83,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Portfolio CMS",
     "welcome_sign": "Welcome to your Portfolio Dashboard",
     "search_model": ["core.Project", "core.BlogPost"],
-    "show_ui_builder": False,
+    "show_ui_builder": True,
     "topmenu_links": [
         {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
         {"name": "View Site", "url": "http://127.0.0.1:5173", "new_window": True},
@@ -101,6 +101,6 @@ JAZZMIN_SETTINGS = {
 }
 
 JAZZMIN_UI_TWEAKS = {
-    "theme": "darkly",
+    "theme": "default",
     "dark_mode_theme": "darkly",
 }
