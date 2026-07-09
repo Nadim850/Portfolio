@@ -104,3 +104,7 @@ JAZZMIN_UI_TWEAKS = {
     "theme": "default",
     "dark_mode_theme": "darkly",
 }
+ALLOWED_HOSTS = [
+    "portfolio-backend-rn43.onrender.com",
+    "nadimkhan-dev.vercel.app",  # your frontend domain
+]
