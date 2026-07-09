@@ -17,7 +17,7 @@ from core.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/tech-updates/', TechUpdateListView.as_view(), name='tech-updates-list'),
+    path('api/tech-updates/', TechUpdateListView.as_view(), name='techupdate-list'),
     path('api/blogs/', BlogPostListView.as_view(), name='blog-list'),
     path('api/blogs/<slug:slug>/', BlogPostDetailView.as_view(), name='blog-detail'),
     path('api/projects/', ProjectListView.as_view(), name='project-list'),
