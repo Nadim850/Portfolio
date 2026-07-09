@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
+import { API_URL } from '../config';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -11,7 +12,7 @@ const Contact = () => {
     setStatus('submitting');
     
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/contact/', {
+      const response = await fetch(`${API_URL}/api/contact/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

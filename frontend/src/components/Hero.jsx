@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../config';
 
 const Hero = () => {
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/profile/')
+    fetch(`${API_URL}/api/profile/`)
       .then(res => res.json())
       .then(data => {
         if (Object.keys(data).length > 0) setProfile(data);

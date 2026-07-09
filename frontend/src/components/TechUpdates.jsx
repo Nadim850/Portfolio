@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../config';
 
 const TechUpdates = () => {
   const [updates, setUpdates] = useState([]);
@@ -6,7 +7,7 @@ const TechUpdates = () => {
 
   useEffect(() => {
     // Fetch from Django API
-    fetch('http://127.0.0.1:8000/api/tech-updates/')
+    fetch(`${API_URL}/api/tech-updates/`)
       .then((res) => res.json())
       .then((data) => {
         setUpdates(data);

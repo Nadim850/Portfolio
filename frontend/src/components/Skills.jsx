@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Cloud, Code, Wrench } from 'lucide-react';
+import { API_URL } from '../config';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -21,7 +22,7 @@ const Skills = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/skills/')
+    fetch(`${API_URL}/api/skills/`)
       .then(res => res.json())
       .then(data => setCategories(data))
       .catch(console.error);

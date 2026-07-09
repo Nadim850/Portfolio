@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { API_URL } from '../config';
 
 const Experience = () => {
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/experience/')
+    fetch(`${API_URL}/api/experience/`)
       .then(res => res.json())
       .then(data => setExperiences(data))
       .catch(console.error);

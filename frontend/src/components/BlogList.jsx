@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../config';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/blogs/')
+    fetch(`${API_URL}/api/blogs/`)
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, ExternalLink } from 'lucide-react';
+import { API_URL } from '../config';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/projects/')
+    fetch(`${API_URL}/api/projects/`)
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
