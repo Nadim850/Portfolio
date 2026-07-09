@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import RedirectView
 
 admin.site.site_header = "Nadim's Portfolio Admin"
 admin.site.site_title = "Portfolio Admin Portal"
@@ -16,6 +17,7 @@ from core.views import (
 )
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='/admin/', permanent=False)),
     path('admin/', admin.site.urls),
     path('api/tech-updates/', TechUpdateListView.as_view(), name='techupdate-list'),
     path('api/blogs/', BlogPostListView.as_view(), name='blog-list'),
