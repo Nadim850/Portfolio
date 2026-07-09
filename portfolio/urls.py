@@ -1,5 +1,9 @@
 from django.contrib import admin
 from django.urls import path
+
+admin.site.site_header = "Nadim's Portfolio Admin"
+admin.site.site_title = "Portfolio Admin Portal"
+admin.site.index_title = "Welcome to the Portfolio CMS"
 from core.views import (
     TechUpdateListView, 
     BlogPostListView, 

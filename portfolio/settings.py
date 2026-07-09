@@ -13,6 +13,7 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,3 +76,31 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CORS_ALLOW_ALL_ORIGINS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Portfolio Admin",
+    "site_header": "Nadim Khan",
+    "site_brand": "Portfolio CMS",
+    "welcome_sign": "Welcome to your Portfolio Dashboard",
+    "search_model": ["core.Project", "core.BlogPost"],
+    "show_ui_builder": False,
+    "topmenu_links": [
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "View Site", "url": "http://127.0.0.1:5173", "new_window": True},
+    ],
+    "icons": {
+        "core.Project": "fas fa-briefcase",
+        "core.BlogPost": "fas fa-pen",
+        "core.TechUpdate": "fas fa-bolt",
+        "core.ContactMessage": "fas fa-envelope",
+        "core.UserProfile": "fas fa-user",
+        "core.Experience": "fas fa-history",
+        "core.SkillCategory": "fas fa-layer-group",
+        "core.Skill": "fas fa-code",
+    },
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "darkly",
+    "dark_mode_theme": "darkly",
+}
