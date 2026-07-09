@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TechUpdate, BlogPost, Project, ContactMessage
+from .models import TechUpdate, BlogPost, Project, ContactMessage, UserProfile, Experience, SkillCategory, Skill
 
 @admin.register(TechUpdate)
 class TechUpdateAdmin(admin.ModelAdmin):
@@ -24,3 +24,23 @@ class ContactMessageAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'sent_date', 'is_read')
     list_filter = ('is_read', 'sent_date')
     search_fields = ('name', 'email', 'message')
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role')
+
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
+    list_display = ('role', 'company', 'order')
+    ordering = ('order',)
+
+class SkillInline(admin.TabularInline):
+    model = Skill
+    extra = 1
+
+@admin.register(SkillCategory)
+class SkillCategoryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'order')
+    inlines = [SkillInline]
+    ordering = ('order',)
+

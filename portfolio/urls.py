@@ -5,7 +5,10 @@ from core.views import (
     BlogPostListView, 
     BlogPostDetailView, 
     ProjectListView, 
-    ContactMessageCreateView
+    ContactMessageCreateView,
+    UserProfileView,
+    ExperienceListView,
+    SkillCategoryListView
 )
 
 urlpatterns = [
@@ -15,4 +18,7 @@ urlpatterns = [
     path('api/blogs/<slug:slug>/', BlogPostDetailView.as_view(), name='blog-detail'),
     path('api/projects/', ProjectListView.as_view(), name='project-list'),
     path('api/contact/', ContactMessageCreateView.as_view(), name='contact-create'),
+    path('api/profile/', UserProfileView.as_view(), name='profile-detail'),
+    path('api/experience/', ExperienceListView.as_view(), name='experience-list'),
+    path('api/skills/', SkillCategoryListView.as_view(), name='skill-list'),
 ]
